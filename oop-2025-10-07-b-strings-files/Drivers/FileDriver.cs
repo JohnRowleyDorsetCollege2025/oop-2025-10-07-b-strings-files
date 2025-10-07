@@ -28,15 +28,16 @@ namespace oop_2025_10_07_b_strings_files.Drivers
         public static void WriteMoviesToFile()
         {
 
-            
 
+            
             var movies = MovieRepository.GetAllMovies();
-            string fileToWrite = "../../../Documents/movies.txt";
             List<string> movieLines = new List<string>();
             foreach (var movie in movies)
             {
                 movieLines.Add($"{movie}");
             }
+
+            string fileToWrite = "../../../Documents/movies.txt";
             File.WriteAllLines(fileToWrite, movieLines);
             Console.WriteLine($"Wrote to file: {fileToWrite}");
 
