@@ -14,6 +14,7 @@ namespace oop_2025_10_07_b_strings_files.Models
             Console.WriteLine("String Driver Running...");
             DisplayProducts();
             FormattingDemo();
+            FixedWidthWithHeader();
 
         } // end of Run()
 
@@ -58,6 +59,29 @@ namespace oop_2025_10_07_b_strings_files.Models
             }
             Console.WriteLine("=".PadLeft(35, '='));
         }
+
+        public static void FixedWidthWithHeader()
+        {
+
+            string[] headers = { "ID", "Name", "Occupation" };
+            string[,] data = {
+                    {"1", "Alice", "Engineer"},
+                    {"2", "Bob", "Doctor"},
+                    {"3", "Cathy", "Designer" }
+
+            };
+
+            Console.WriteLine($"|{headers[0],-5}|{headers[1],-10}|{headers[2],-12}");
+
+            for (int i = 0; i < data.GetLength(0); i++)
+            {
+                Console.WriteLine($"|{data[i, 0],-5}|{data[i, 1],-10}|{data[i, 2],-12}");
+
+            }
+
+
+        }
+
 
     } // end of StringDriver class
 }
