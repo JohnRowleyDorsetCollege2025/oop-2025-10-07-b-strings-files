@@ -1,4 +1,5 @@
-﻿using System;
+﻿using oop_2025_10_07_b_strings_files.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,10 +48,15 @@ namespace oop_2025_10_07_b_strings_files.Models
 
         public static void DisplayProducts()
         {
-            Console.WriteLine("===Start===");
+            Console.WriteLine("=".PadLeft(35,'='));
 
-            Console.WriteLine("===end===");
+            List<Product> products = ProductRepository.GetAllProducts();
 
+            foreach (var item in products)
+            {
+                Console.WriteLine($"{item.name,10}:{item.price,-10}");
+            }
+            Console.WriteLine("=".PadLeft(35, '='));
         }
 
     } // end of StringDriver class
