@@ -1,4 +1,5 @@
-﻿using System;
+﻿using oop_2025_10_07_b_strings_files.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace oop_2025_10_07_b_strings_files.Drivers
         {
             Console.WriteLine("File Driver Running...");
             WriteTextFile();
+            WriteMoviesToFile();
         } // end of Run()
 
         public static void WriteTextFile() {
@@ -19,6 +21,23 @@ namespace oop_2025_10_07_b_strings_files.Drivers
             string [] lines = { "First line", "Second line", "Third line","Fourth Line" };
             string fileToWrite = "../../../Documents/output.txt";
             File.WriteAllLines(fileToWrite, lines);
+            Console.WriteLine($"Wrote to file: {fileToWrite}");
+
+        }
+
+        public static void WriteMoviesToFile()
+        {
+
+            
+
+            var movies = MovieRepository.GetAllMovies();
+            string fileToWrite = "../../../Documents/movies.txt";
+            List<string> movieLines = new List<string>();
+            foreach (var movie in movies)
+            {
+                movieLines.Add($"{movie}");
+            }
+            File.WriteAllLines(fileToWrite, movieLines);
             Console.WriteLine($"Wrote to file: {fileToWrite}");
 
         }
